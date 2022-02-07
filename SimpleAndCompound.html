@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title>Simple and Compound Interest Calculator</title>
+	<link rel = "stylesheet"  href = "compound.css" >
+	<script type = "application/javascript" src = "compound.js"></script>
 </head>
 <body>
 	<div class = "main">
@@ -15,7 +17,7 @@
 			</select></span><br><br>
 
 			<label for = "rate" >Rate</label>
-			<span style = "margin : 70px"><input type = "range" id = "rate" min = "1.0" max = "20.0" default = "10.0" onchange = "" >
+			<span style = "margin : 70px"><input type = "range" id = "rate" min = "1.0" max = "20.0" default = "10.0" onchange = "updateRate()" >
 			<span id = "rateVal">10.0</span>
 			</span><br><br>
 
@@ -38,8 +40,8 @@
 				<option list = "year">years</option>
 			</select></span><br>
 			
-			<input type = "button" onclick = "" value = "Simple Interest" style = "background-color : rgb( 80, 80, 200) ; font-size : 20px ">
-			<input type = "button" onclick = "" value = "Compound Interest" style = "background-color : rgb( 80, 80, 200 ) ; font-size : 20px ; margin : 20px " ><br>
+			<input type = "button" onclick = "computeSimple()" value = "Simple Interest" style = "background-color : rgb( 80, 80, 200) ; font-size : 20px ">
+			<input type = "button" onclick = "computeCompound()" value = "Compound Interest" style = "background-color : rgb( 80, 80, 200 ) ; font-size : 20px ; margin : 20px " ><br>
 			<span id = "result"></span><br>
 		</form>
 		<footer>&#169; This Calculator belongs to --RehanA99--</footer>
