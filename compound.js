@@ -6,6 +6,23 @@ var turn ;
 var interest ;
 var yearNam ;
 var month ;
+var total ;
+
+function displayInterest() {
+	if( plan == "monthly" && yearValue == "months" ) {
+		principal = document.getElementById("principal").value ;
+		turn = document.getElementById("turn").value ;
+		total = parseInt(principal * turn + interest) ;
+		document.getElementById("result").innerHTML = "If you deposite \<mark>&#8377;" + principal + "\</mark> monthly,\<br\>at an interest rate of \<mark>" + (rate * 100) + "%\</mark>.\<br\>You will receive an interest of \<mark>&#8377;" + Math.floor(interest) + "\</mark>,\<br>with total amount \<mark>&#8377;" + total + "\</mark>,\<br\>in \<mark>" + ( yearNam.getMonth() + 1 ) + "-" + yearNam.getFullYear() + "\</mark>" ;
+	}
+	else if( plan == "annually" && yearValue == "months" ) {
+		document.getElementById("result").innerHTML = "If you deposite \<mark>&#8377;" + principal + "\</mark> annually,\<br\>at an interest rate of \<mark>" + (rate * 100) + "%\</mark>.\<br\>You will receive an interest of \<mark>&#8377;" + Math.floor(interest) + "\</mark>,\<br\>in \<mark>" + ( yearNam.getMonth() + 1 ) + "-" + yearNam.getFullYear() + "\</mark>" ;
+	}
+	else {
+		total = parseInt(principal * turn + interest) ;
+		document.getElementById("result").innerHTML = "If you deposite \<mark>&#8377;" + principal + "\</mark> annually,\<br\>at an interest rate of \<mark>" + (rate * 100) + "%\</mark>.\<br\>You will receive an interest of \<mark>&#8377;" + Math.floor(interest) + "\</mark>,\<br>with total amount \<mark>&#8377;" + total + "\</mark>,\<br\>in \<mark>" + ( yearNam.getMonth() + 1 ) + "-" + yearNam.getFullYear() + "\</mark>" ;
+	}
+}
 
 function computeCompound()
 {
@@ -57,7 +74,8 @@ function computeCompound()
 			yearNam.setFullYear( yearNam.getFullYear() + parseInt(turn) ) ;
 		}
 // Enhanced Date.	
-		document.getElementById("result").innerHTML = "If you deposite &#8377;\<mark>" + principal + "\</mark> annually,\<br\>at an interest rate of \<mark>" + (rate * 100) + "%\</mark>.\<br\>You will receive an amount of &#8377;\<mark>" + Math.floor(interest) + "\</mark>,\<br\>in \<mark>" + ( yearNam.getMonth() + 1 ) + "-" + yearNam.getFullYear() + "\</mark>" ;
+		displayInterest() ;
+//displayed interest with total amount
 	}
 	return true ;
 }
@@ -112,7 +130,8 @@ function computeSimple() {
 			yearNam.setFullYear( yearNam.getFullYear() + parseInt(turn) ) ;
 		}
 // Enhanced Date.
-		document.getElementById("result").innerHTML = "If you deposite &#8377;\<mark>" + principal + "\</mark> annually,\<br\>at an interest rate of \<mark>" + (rate * 100) + "%\</mark>.\<br\>You will receive an amount of &#8377;\<mark>" + Math.floor(interest) + "\</mark>,\<br\>in \<mark>"  + ( yearNam.getMonth() + 1 ) + "-" + yearNam.getFullYear() + "\</mark>" ;
+		displayInterest() ;
+//displayed interest with total amount
 	}
 	return true ;
 }
